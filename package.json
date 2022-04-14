@@ -1,0 +1,22 @@
+{
+  "name": "note-creatore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass app/src/scss/main.scss app/public/css/styles.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "cssnano": "^5.1.7",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0"
+  },
+  "dependencies": {
+    "dart-sass": "^1.25.0",
+    "sass": "^1.50.0"
+  }
+}

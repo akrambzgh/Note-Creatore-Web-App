@@ -1,0 +1,14 @@
+@use "./breake-points.scss" as breake-points;
+
+@mixin flex($js, $al, $di) {
+  display: flex;
+  justify-content: $js;
+  align-items: $al;
+  flex-direction: $di;
+}
+
+@mixin largeScreen() {
+  @media (min-width: map-get($map: breake-points.$screen-width, $key: "medium")) {
+    @content;
+  }
+}

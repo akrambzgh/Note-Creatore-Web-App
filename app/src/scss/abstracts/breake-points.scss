@@ -1,0 +1,31 @@
+$screen-width: (
+  "small": 768px,
+  "medium": 992px,
+  "large": 1920px,
+);
+
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: map-get($map: $screen-width, $key: "small")) and (max-width: 991px) {
+  .container {
+    width: 760px;
+  }
+}
+@media (min-width: map-get($map: $screen-width, $key: "medium")) and (max-width: 1199px) {
+  .container {
+    width: 1920px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: map-get($map: $screen-width, $key: "large")) {
+  .container {
+    width: 1920px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

@@ -1,0 +1,77 @@
+@use "../abstracts/vars.scss" as vars;
+@use "../abstracts/mixin.scss" as mixin;
+@use "../abstracts/weights.scss" as weights;
+@use "../utils/font-family.scss" as font-family;
+
+header {
+  @include mixin.flex(space-between, center, row);
+  padding: 0 15px;
+  position: relative;
+  nav {
+    @include mixin.flex(space-between, center, row);
+    button {
+      position: relative;
+      padding: 5px;
+      z-index: 6;
+      cursor: pointer;
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .list {
+      position: absolute;
+      z-index: 5;
+      left: -200px;
+      top: -10px;
+      width: 200px;
+      background-color: white;
+      height: calc(100vh + 10px);
+      @include mixin.flex(center, flex-start, column);
+      transition: 300ms;
+      &.open {
+        left: 0;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      ul {
+        margin-top: 50px;
+        margin-left: 10px;
+        li {
+          margin-bottom: 30px;
+          a {
+            font-size: 18px;
+            color: black;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+  .page-name {
+    h2 {
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: black;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+  .search {
+    .search-bar {
+      input {
+        display: none;
+      }
+    }
+  }
+}
+
+main {
+  padding: 20px 15px;
+  width: 98%;
+  margin: 30px auto 0;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  position: relative;
+}

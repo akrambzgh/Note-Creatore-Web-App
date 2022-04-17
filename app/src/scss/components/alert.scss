@@ -1,0 +1,29 @@
+.alert {
+  width: 98%;
+  height: 200px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 30px;
+  padding: 15px;
+  h3 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-top: 90px;
+    text-align: center;
+  }
+  button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: blue;
+  }
+}

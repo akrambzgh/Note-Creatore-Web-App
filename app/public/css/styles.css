@@ -1,15 +1,266 @@
-h1 {
-  color: red;
-  font-size: 50px;
-  background-color: blue;
+html {
+  font-size: 100%;
+  line-height: 1.4;
 }
-h1::placeholder {
-  font: 50px;
+
+* {
+  box-sizing: border-box;
+}
+* *::before,
+* *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  outline: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 760px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    width: 1920px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: 1920px) {
+  .container {
+    width: 1920px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: baseline;
-  flex: 5;
-  letter-spacing: 5px;
+  flex-direction: row;
+  padding: 0 15px;
+  position: relative;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+header nav button {
+  position: relative;
+  padding: 5px;
+  z-index: 6;
+  cursor: pointer;
+}
+header nav button img {
+  width: 25px;
+  height: 25px;
+}
+header nav .list {
+  position: absolute;
+  z-index: 5;
+  left: -200px;
+  top: -10px;
+  width: 200px;
+  background-color: white;
+  height: calc(100vh + 10px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: 300ms;
+}
+header nav .list.open {
+  left: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+header nav .list ul {
+  margin-top: 50px;
+  margin-left: 10px;
+}
+header nav .list ul li {
+  margin-bottom: 30px;
+}
+header nav .list ul li a {
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header .page-name h2 {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: black;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+header .search .search-bar input {
+  display: none;
+}
+
+main {
+  padding: 20px 15px;
+  width: 98%;
+  margin: 30px auto 0;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  position: relative;
+}
+
+.note-box {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 10px;
+}
+.note-box:not(:last-child) {
+  margin-bottom: 15px;
+}
+.note-box .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  padding-bottom: 2px;
+}
+.note-box .head .title h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.note-box .head .bookmark button.favorite {
+  padding: 5px;
+  cursor: pointer;
+}
+.note-box .head .bookmark button.favorite img {
+  width: 25px;
+  height: 25px;
+}
+.note-box .min-p {
+  padding-top: 2px;
+}
+.note-box .min-p p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.new-note-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 10px;
+  background-color: black;
+  position: sticky;
+  bottom: 0;
+}
+.new-note-section .new-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff8800;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+.new-note-section .new-circle img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.new-note-section img {
+  width: 30px;
+  height: 30px;
+}
+
+.alert {
+  width: 98%;
+  height: 200px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 30px;
+  padding: 15px;
+}
+.alert h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-top: 90px;
+  text-align: center;
+}
+.alert button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: blue;
 }
 
 /*# sourceMappingURL=styles.css.map */

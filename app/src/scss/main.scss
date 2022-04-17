@@ -1,13 +1,5 @@
-h1 {
-  color: red;
-  font-size: 50px;
-  background-color: blue;
-  &::placeholder {
-    font: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
-    flex: 5;
-    letter-spacing: 5px;
-  }
-}
+@use "./base/index" as global;
+@use "./utils/index" as utils;
+@use "./abstracts/index" as abstracts;
+@use "./layout/index" as layout;
+@use "./components/index" as components;

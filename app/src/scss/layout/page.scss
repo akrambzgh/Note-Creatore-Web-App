@@ -12,7 +12,7 @@ header {
     button {
       position: relative;
       padding: 5px;
-      z-index: 6;
+      z-index: 5;
       cursor: pointer;
       img {
         width: 25px;
@@ -21,7 +21,7 @@ header {
     }
     .list {
       position: absolute;
-      z-index: 5;
+      z-index: 4;
       left: -200px;
       top: -10px;
       width: 200px;
@@ -40,7 +40,7 @@ header {
           margin-bottom: 30px;
           a {
             font-size: 18px;
-            color: black;
+            color: vars.$darkGray;
             font-weight: 400;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -53,7 +53,7 @@ header {
     h2 {
       font-size: 20px;
       letter-spacing: 2px;
-      color: black;
+      color: vars.$darkGray;
       font-weight: 400;
       text-transform: uppercase;
     }
@@ -71,7 +71,15 @@ main {
   padding: 20px 15px;
   width: 98%;
   margin: 30px auto 0;
-  background-color: rgb(235, 235, 235);
+  background-color: vars.$gray;
   border-radius: 10px;
   position: relative;
+  & > h3 {
+    color: vars.$darkGray;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 }

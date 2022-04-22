@@ -38,16 +38,19 @@ a {
 }
 
 button,
-input {
+input,
+textarea {
   outline: none;
   border: 0;
   background: none;
   padding: 0;
   margin: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -102,7 +105,7 @@ header nav {
 header nav button {
   position: relative;
   padding: 5px;
-  z-index: 6;
+  z-index: 5;
   cursor: pointer;
 }
 header nav button img {
@@ -111,7 +114,7 @@ header nav button img {
 }
 header nav .list {
   position: absolute;
-  z-index: 5;
+  z-index: 4;
   left: -200px;
   top: -10px;
   width: 200px;
@@ -136,7 +139,7 @@ header nav .list ul li {
 }
 header nav .list ul li a {
   font-size: 18px;
-  color: black;
+  color: hsl(0deg, 0%, 25%);
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -144,7 +147,7 @@ header nav .list ul li a {
 header .page-name h2 {
   font-size: 20px;
   letter-spacing: 2px;
-  color: black;
+  color: hsl(0deg, 0%, 25%);
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -156,14 +159,23 @@ main {
   padding: 20px 15px;
   width: 98%;
   margin: 30px auto 0;
-  background-color: rgb(235, 235, 235);
+  background-color: hsl(0deg, 0%, 81%);
   border-radius: 10px;
   position: relative;
 }
+main > h3 {
+  color: hsl(0deg, 0%, 25%);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
 .note-box {
-  border: 1px solid black;
+  border: 1px solid hsl(0deg, 0%, 25%);
   padding: 15px;
+  background-color: hsl(0deg, 0%, 90%);
   border-radius: 10px;
 }
 .note-box:not(:last-child) {
@@ -174,7 +186,7 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  border-bottom: 1px solid rgb(201, 201, 201);
+  border-bottom: 1px solid hsl(0deg, 0%, 81%);
   padding-bottom: 2px;
 }
 .note-box .head .title h3 {
@@ -193,12 +205,16 @@ main {
 }
 .note-box .min-p {
   padding-top: 2px;
+  width: 100%;
+  height: 155.56px;
+  overflow: scroll;
 }
 .note-box .min-p p {
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
   text-transform: capitalize;
+  line-break: strict;
 }
 
 .new-note-section {
@@ -207,15 +223,17 @@ main {
   align-items: center;
   flex-direction: row;
   padding: 20px 10px;
-  background-color: black;
-  position: sticky;
+  background-color: hsl(0deg, 0%, 25%);
+  position: fixed;
+  width: 100%;
+  z-index: 7;
   bottom: 0;
 }
 .new-note-section .new-circle {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ff8800;
+  background-color: hsl(217deg, 70%, 56%);
   position: absolute;
   top: -20px;
   left: 50%;
@@ -238,19 +256,29 @@ main {
   height: 200px;
   margin: 0 auto;
   position: absolute;
-  left: 0;
+  left: 1%;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 11;
   background-color: white;
   border-radius: 30px;
   padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+}
+.alert.show {
+  opacity: 1;
+  visibility: visible;
 }
 .alert h3 {
+  border-top: 1px solid gray;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin-top: 90px;
+  padding-top: 20px;
+  margin-top: 55px;
   text-align: center;
 }
 .alert button {
@@ -260,7 +288,214 @@ main {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: hsl(217deg, 70%, 56%);
+}
+.alert button span {
+  width: 2px;
+  height: 32px;
+  background: white;
+  position: absolute;
+  top: 5px;
+}
+.alert button span:nth-child(1) {
+  left: 18px;
+  transform: rotate(45deg);
+}
+.alert button span:nth-child(2) {
+  right: 18px;
+  transform: rotate(-45deg);
+}
+
+.search-section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0deg, 0%, 90%);
+  z-index: 6;
+  border-radius: 30px;
+  transition: 300ms;
+}
+.search-section.show {
+  transform: translateY(0);
+}
+.search-section .search-bar {
+  position: absolute;
+  top: 30px;
+  left: 2.5%;
+  padding-left: 10px;
+  width: 95%;
+  padding-block: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 30px;
+}
+.search-section .search-bar input {
+  font-size: 16px;
+  flex: 1;
+}
+.search-section .search-bar input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: hsl(0deg, 0%, 25%);
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.search-section button.back {
+  width: 98%;
+  padding: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: hsl(217deg, 70%, 56%);
+  border-radius: 30px;
+  position: absolute;
+  left: 1%;
+  bottom: 150px;
+}
+
+.create-note-section {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0deg, 0%, 90%);
+  padding: 25px;
+  z-index: 8;
+  transition: 300ms;
+}
+.create-note-section.show {
+  transform: translateX(0);
+}
+.create-note-section input.title-input {
+  display: block;
+  width: 100%;
+  border: 1px solid hsl(0deg, 0%, 25%);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: hsl(0deg, 0%, 25%);
+}
+.create-note-section #note-textarea {
+  display: block;
+  margin-top: 30px;
+  width: 100%;
+  height: 550px;
+  border: 1px solid hsl(0deg, 0%, 25%);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: hsl(0deg, 0%, 25%);
+  resize: none;
+}
+.create-note-section .letters-number {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  position: absolute;
+  left: 20px;
+  bottom: 220px;
+}
+.create-note-section .letters-number .max-number-of-letters {
+  background-color: hsl(0deg, 0%, 25%);
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+.create-note-section .letters-number .max-number-of-letters span.of-number {
+  display: inline-block;
+  margin-right: 5px;
+}
+.create-note-section .letters-number .max-number-of-letters span.total-number {
+  display: inline-block;
+  margin-left: 5px;
+}
+.create-note-section .letters-number .max-letter-alert {
+  flex: 1;
+  padding-block: 6px;
+  padding-inline: 2px;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  background-color: hsl(4deg, 90%, 58%);
+  text-align: center;
+  opacity: 0;
+}
+.create-note-section .letters-number .max-letter-alert.show {
+  opacity: 1;
+}
+.create-note-section button.btn {
+  width: 98%;
+  padding-block: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  position: absolute;
+  left: 1%;
+  cursor: pointer;
+}
+.create-note-section button.btn.create-back {
+  bottom: 25px;
+  background-color: hsl(4deg, 90%, 58%);
+}
+.create-note-section button.btn.create-note {
+  bottom: 100px;
+  background-color: hsl(217deg, 70%, 56%);
+}
+
+.favorite-notes-section {
+  position: absolute;
+  right: 0;
+  transform: translateX(-100%);
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  padding-inline: 15px;
+  background-color: hsl(0deg, 0%, 81%);
+  z-index: 7;
+  transition: 300ms;
+}
+.favorite-notes-section.show {
+  transform: translateX(0);
+}
+.favorite-notes-section > h3 {
+  color: hsl(0deg, 0%, 25%);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.favorite-notes-section button.favorite-back {
+  width: 98%;
+  padding: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: hsl(217deg, 70%, 56%);
+  border-radius: 30px;
+  position: absolute;
+  left: 1%;
+  bottom: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */

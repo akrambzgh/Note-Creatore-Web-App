@@ -1,20 +1,32 @@
+@use "../abstracts/vars.scss" as vars;
+
 .alert {
   width: 98%;
   height: 200px;
   margin: 0 auto;
   position: absolute;
-  left: 0;
+  left: 1%;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 11;
   background-color: white;
   border-radius: 30px;
   padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
   h3 {
+    border-top: 1px solid gray;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: capitalize;
-    margin-top: 90px;
+    padding-top: 20px;
+    margin-top: 55px;
     text-align: center;
   }
   button {
@@ -24,6 +36,21 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: blue;
+    background-color: vars.$blue;
+    span {
+      width: 2px;
+      height: 32px;
+      background: white;
+      position: absolute;
+      top: 5px;
+      &:nth-child(1) {
+        left: 18px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        right: 18px;
+        transform: rotate(-45deg);
+      }
+    }
   }
 }

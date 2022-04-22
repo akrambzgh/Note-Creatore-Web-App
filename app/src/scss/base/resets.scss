@@ -1,3 +1,5 @@
+@use "../utils/font-family.scss" as font-family;
+
 h1,
 h2,
 h3,
@@ -19,16 +21,19 @@ a {
 }
 
 button,
-input {
+input,
+textarea {
   outline: none;
   border: 0;
   background: none;
   padding: 0;
   margin: 0;
+  font-family: font-family.$font-family;
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 

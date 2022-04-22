@@ -27,10 +27,10 @@
             <li>
               <a href="#">Home</a>
             </li>
-            <li>
+            <li class="fav-tab">
               <a href="#">Favorite</a>
             </li>
-            <li>
+            <li class="new-tab">
               <a href="#">New</a>
             </li>
             <li>
@@ -44,132 +44,10 @@
       </div>
       <div class="search">
         <img src="/images/search.svg" alt="" />
-        <div class="search-bar">
-          <input type="text" placeholder="Search for note" />
-        </div>
       </div>
     </header>
     <main>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
-      <div class="note-box">
-        <div class="head">
-          <div class="title">
-            <h3>Test Note</h3>
-          </div>
-          <div class="bookmark">
-            <button class="favorite">
-              <img src="/images/bookmark.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="min-p">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos,
-            officiis? Ea debitis rerum facere culpa vero nulla, ipsam quae totam
-            vitae aliquid eaque assumenda iste. Voluptates assumenda excepturi
-            beatae labore.
-          </p>
-        </div>
-      </div>
+      <h3>Your Notes Will Be Appear Here</h3>
     </main>
     <div class="new-note-section">
       <div class="mic">
@@ -182,13 +60,60 @@
         <img src="/images/check.svg" alt="" />
       </div>
     </div>
+
+    <div class="search-section">
+      <div class="search-bar">
+        <img src="/images/search.svg" alt="" />
+        <input type="text" placeholder="Search for note" />
+      </div>
+      <button class="back">
+        <h3>Back</h3>
+      </button>
+    </div>
+
+    <div class="create-note-section">
+      <input type="text" placeholder="TITLE" class="title-input" />
+      <textarea
+        id="note-textarea"
+        placeholder="Text"
+        maxlength="600"
+      ></textarea>
+      <div class="letters-number">
+        <div class="max-number-of-letters">
+          <span
+            ><span class="of-number">0</span>/<span class="total-number"
+              >600</span
+            ></span
+          >
+        </div>
+        <div class="max-letter-alert">
+          <span>You Have Reach The Max Number</span>
+        </div>
+      </div>
+
+      <button class="create-note btn">
+        <h3>Create</h3>
+      </button>
+      <button class="create-back btn">
+        <h3>Back</h3>
+      </button>
+    </div>
+
+    <div class="favorite-notes-section">
+      <h3>Your Favorite Notes</h3>
+      <button class="favorite-back">
+        <h3>Back</h3>
+      </button>
+    </div>
+
     <div class="alert">
-      <h3>Your Note Has Been Favorite</h3>
-      <button>
+      <h3>Your Have Some Empty Inputs</h3>
+      <button class="close-alert">
         <span></span>
         <span></span>
       </button>
     </div>
+
     <script src="/app/src/js/app.js"></script>
   </body>
 </html>

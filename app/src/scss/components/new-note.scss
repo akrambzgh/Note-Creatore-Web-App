@@ -1,18 +1,19 @@
 @use "../abstracts/vars.scss" as vars;
 @use "../abstracts/mixin.scss" as mixin;
-@use "../abstracts/weights.scss" as weights;
 
 .new-note-section {
   @include mixin.flex(space-between, center, row);
   padding: 20px 10px;
-  background-color: black;
-  position: sticky;
+  background-color: vars.$darkGray;
+  position: fixed;
+  width: 100%;
+  z-index: 7;
   bottom: 0;
   .new-circle {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #ff8800;
+    background-color: vars.$blue;
     position: absolute;
     top: -20px;
     left: 50%;
